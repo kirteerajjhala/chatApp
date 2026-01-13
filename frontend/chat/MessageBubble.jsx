@@ -1,9 +1,8 @@
 // src/chat/MessageBubble.jsx
 export default function MessageBubble({ message, currentUserId }) {
-  // Safe comparison: agar koi bhi id missing hai toh false return karega crash hone ke bajaye
   const isMine = message?.senderId?.toString() === currentUserId?.toString();
 
-  if (!message) return null; // Safety check: agar message object hi nahi hai
+  if (!message) return null; 
 
   return (
     <div className={`flex ${isMine ? "justify-end" : "justify-start"} mb-2`}>

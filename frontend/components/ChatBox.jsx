@@ -7,10 +7,8 @@ export default function ChatBox({ role }) {
   const bottomRef = useRef();
 
   useEffect(() => {
-    // Join with role
     socket.emit("join", { role });
 
-    // Listen incoming messages
     socket.on("chat-message", ({ role, message, time }) => {
       setMessages((prev) => [...prev, { role, message, time }]);
     });
@@ -31,10 +29,10 @@ export default function ChatBox({ role }) {
       minute: "2-digit",
     });
 
-    // Emit to server
+    
     socket.emit("chat-message", { message: input, time });
 
-    // Add to sender's chat
+  
     setMessages((prev) => [...prev, { role, message: input, time }]);
     setInput("");
   };

@@ -1,7 +1,6 @@
 import { Assignment } from "../Model/Assignment.js"
 import { User } from "../Model/User.js"
 
-// PATIENT → GET ASSIGNED DOCTORS
 export const getAssignedDoctors = async (req, res) => {
   if (req.user.role !== "patient")
     return res.status(403).json({ message: "Access denied" })
@@ -13,7 +12,6 @@ export const getAssignedDoctors = async (req, res) => {
   res.json(assignments.map(a => a.doctorId))
 }
 
-// DOCTOR → GET ASSIGNED PATIENTS
 export const getAssignedPatients = async (req, res) => {
   if (req.user.role !== "doctor")
     return res.status(403).json({ message: "Access denied" })

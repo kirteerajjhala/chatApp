@@ -51,7 +51,6 @@ export const login = async (req, res) => {
 }
 
 // get doctores
-
 export const getDoctors = async (req, res) => {
   try {
     const doctors = await User.find({ role: "doctor" }).select("_id name")
