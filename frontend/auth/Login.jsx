@@ -9,12 +9,10 @@ export default function Login({ onLogin, onSwitch }) {
       const { data } = await api.post("/auth/login", form);
       const { token, user } = data;
 
-      // Save all necessary info in localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("role", user.role);
       localStorage.setItem("userId", user._id);
 
-      // Call onLogin with all info
       onLogin({ token, role: user.role, userId: user._id });
     } catch (err) {
       console.error("Login failed:", err.response?.data || err.message);

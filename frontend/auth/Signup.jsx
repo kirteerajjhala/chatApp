@@ -53,7 +53,6 @@ export default function Signup({ onSwitch }) {
           <option value="doctor">Doctor</option>
         </select>
 
-        {/* CHECKBOX DOCTOR ASSIGNMENT */}
         {form.role === "patient" && (
           <div className="mb-4">
             <label className="block mb-2 text-gray-700">Assign Doctors</label>
